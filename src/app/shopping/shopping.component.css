@@ -1,0 +1,13 @@
+.myItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.itemQtyWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    border: 1px solid red;
+    border-radius: 8px;
+}

@@ -1,0 +1,75 @@
+<!-- <p>shopping works!</p> -->
+<!--<div class="row my-5 myItems">
+      <div class="col-sm-3" *ngFor="let item of shopList">
+       <div class="card text-center" style="width: 18rem;">
+            <img [src]="item.productImage" class="card-img-top px-4 pt-4 img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.productName}}</h5>
+              <p class="card-text">{{item.productPrice}}</p>
+              <div class="row p-2 itemQtyWrapper">
+                <div class="col-sm-4"><a href="#" class="btn btn-primary btn-sm" (click)="countRemove(item)"><span>-</span></a></div>
+                <div class="col-sm-4"><label for="">{{item.prodctqty}}</label></div> -->
+                <!-- <input type="text" [(ngModel)]="item.prodctqty"> -->
+                <!-- <div class="col-sm-4"><a href="#" class="btn btn-primary btn-sm"(click)="countAdd(item)"><span>+</span></a></div>
+              </div>
+              <a href="#" class="btn btn-primary ml-auto" (click)="addToBag(item)">Add to bag</a>
+            </div>
+          </div> 
+    </div>
+</div>-->
+<div class="row my-4">
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4" *ngFor="let item of shopList">
+          <div class="card p-4 text-center">
+            <img [src]="item.productImage" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><strong>{{item.productName}}</strong></h5>
+              <p class="card-text">{{item.productPrice | currency : 'INR'}}</p>
+            </div>
+            <div class="border mb-2 p-3 row-cols-1 row-cols-md-3">
+                <button class="btn btn-secondary" (click)="countRemove(item)"> - </button>
+                <span class="border mx-4 px-3 py-1">{{item.prodctqty}}</span>
+                <!-- <input class="border mx-4 px-3 py-1" [(ngModel)]="item.prodctqty"> -->
+                <button class="btn btn-secondary" (click)="countAdd(item)"> + </button>
+            </div>
+            <button class="btn btn-light mx-auto border" (click)="addToBag(item)">Add to bag</button>
+          </div>
+        </div>
+        
+      </div>
+</div>
+
+<div>
+    <h2>My shopping bag</h2>
+</div>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Quantity</th>
+                <th>Price details</th>
+                <th>Order total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bagItem of bagList">
+                <td><strong>{{bagItem.productName}}</strong></td>
+                <td>{{bagItem.prodctqty}}</td>
+                <td>{{bagItem.productPrice | currency : 'INR'}}</td>
+                <!-- <td>{{bagItem.productPrice*bagItem.prodctqty | currency : 'INR'}}</td> -->
+                <td>{{bagItem.productPrice*bagItem.prodctqty | currency : 'INR'}}</td>
+                <td class="text-center">X</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-right">Total</td>
+                <td>{{amtTotal}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
